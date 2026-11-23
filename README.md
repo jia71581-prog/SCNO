@@ -1,6 +1,6 @@
 # SCNO · Spectral Correction Neural Operator
 
-Training and fine-tuning code for *Non-autoregressive acoustic wavefield prediction with orthogonal multiscale pressure synthesis* by **Yuhang Jia, Dinghui Yang and Zhilong Fang**.
+Training and fine-tuning code for *A Neural Operator with Orthogonal Multiscale Corrections for Time-Domain Acoustic Wavefield Prediction* by **Yuhang Jia, Dinghui Yang and Zhilong Fang**.
 
 SCNO predicts a two-dimensional pressure field from a velocity model, a source and a query time. A base decoder represents the large-scale pressure. Learned detail coefficients pass through fixed orthogonal synthesis at three spatial scales. Each registered time can be queried directly, including times far apart on the same trajectory.
 
