@@ -1,0 +1,38 @@
+{
+  "checkpoint": {
+    "format": "v2",
+    "path": null,
+    "sha256": null,
+    "training_config": null
+  },
+  "model": {"dense_time_block": 1, "refiner_time_block": 1},
+  "sampling_seed": 20261117,
+  "training_residual_centers": 16,
+  "validation_residual_centers": 8,
+  "wall_time_budget_s": null,
+  "full_grid_monitor": false,
+  "check_numerics": false,
+  "cache": {"max_bytes": 536870912, "prepare_batch": 2, "storage": "cpu"},
+  "affine": {"lr": 1.0, "history_size": 20, "outer_step_cap": 20, "closure_evaluation_budget": 80},
+  "lora": {
+    "enabled": false,
+    "scaling": 1.0,
+    "minimum_remaining_probe_lwc": 0.01,
+    "max_updates": 50,
+    "readout_lr": 0.0001,
+    "lora_lr": 0.0003,
+    "weight_decay": 0,
+    "gradient_clip_norm": 1.0
+  },
+  "residual_operator_path": null,
+  "objective": {
+    "observation_times_s": null,
+    "weights": {"obs": 1.0, "ic": 0.01, "lwc": 0.001, "bc": 0.01},
+    "observation_energy_floor": 1e-24,
+    "pde_energy_floor": 1e-24,
+    "delta_s": 0.0005,
+    "epsilon_r": 0.25,
+    "epsilon_p": 0.01,
+    "residual_batch": 4
+  }
+}

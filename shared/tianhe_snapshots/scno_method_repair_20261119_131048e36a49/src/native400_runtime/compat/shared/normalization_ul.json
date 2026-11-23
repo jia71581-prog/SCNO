@@ -1,0 +1,20 @@
+{
+  "velocity_center_mps": 3728.63427734375,
+  "velocity_scale_mps": 2141.111083984375,
+  "pressure_scale_pa": 1.252277344221455e-08,
+  "source_scales": [
+    2000.0,
+    2000.0,
+    50.0,
+    1.2,
+    1.0
+  ],
+  "train_manifest_sha256": "a2ae0d3b1ed2d58a42b6cbdafb7ae020b3a56addbfd3b6489d40f263f857bec8",
+  "allowed_medium_types": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "record_count": 1000,
+  "algorithm": "UL1000_train_only_velocity_exact_pressure_grid8_time8_nonzero_p99_9_v1"
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "ACOUSTIC_TRAIN_GLOBAL_AFFINE_MINMAX_V2",
+  "method": "TRAIN_global_affine_minmax",
+  "pressure_scale_pa": 1.349274256767785e-07,
+  "encode": "p_normalized = (p_pa - pressure_center_pa) / pressure_half_range_pa",
+  "decode": "p_pa = p_normalized * pressure_half_range_pa + pressure_center_pa",
+  "pressure_on_disk": "float32 Pa",
+  "pressure_returned_for_training": "float32 dimensionless",
+  "application": "on_read",
+  "offset": -0.3195849230623886,
+  "clipping": false,
+  "fitted_on": "all 1434 TRAIN records, all 401 frames and all 201x201 nodes",
+  "counts": {
+    "uniform": 500,
+    "layered": 434,
+    "marmousi": 500,
+    "total": 1434
+  },
+  "source_amplitudes_in_this_training_set": [
+    1.0
+  ],
+  "time_axis": {
+    "frames": 401,
+    "first_s": 0.0,
+    "last_s": 1.0,
+    "dt_s": 0.0025,
+    "native_dt_s": 0.00125,
+    "native_stride": 2,
+    "physical_frame_interpolation": false
+  },
+  "raw_min_pa": -9.18066547228591e-08,
+  "raw_max_pa": 1.7804819663069793e-07,
+  "train_normalized_min": -1.0,
+  "train_normalized_max": 1.0,
+  "fitted_to_validation_or_test": false,
+  "per_frame_or_per_record_scaling": false,
+  "legacy_pressure_scale_pa": 1.252277344221455e-08,
+  "reuse_rule": "Reuse these TRAIN extrema for all inference/heldout data; do not clip or refit",
+  "pde_rule": "Decode pressure to Pa before evaluating physical residuals; normalized physical zero is offset, not0",
+  "provenance_sha256": "2836a87dac12b5451d3b5d3e74458f7acc45692e6649f3650bfbf46d262f2df9",
+  "raw_normalization_statistics_sha256": "cec8484afc9cd6c6a219e658353b11da5245ad1230a70158acb412a7daf6905f",
+  "pressure_center_pa": 4.312077095391942e-08,
+  "pressure_half_range_pa": 1.349274256767785e-07,
+  "normalized_physical_zero": -0.3195849230623886,
+  "supersedes": "provenance/max_abs_normalization_20261028/normalization_unit_range.json"
+}

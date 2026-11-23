@@ -1,0 +1,68 @@
+{
+ "model": {
+  "width": 128,
+  "spectral_rank": 48,
+  "modes": [
+   20,
+   16,
+   12,
+   8
+  ],
+  "dense_modes": [
+   20
+  ],
+  "mionet_rank": 128,
+  "token_count": 64,
+  "heads": 4,
+  "position_bands": 4,
+  "fourier_bands": 6,
+  "gabor_scales_s": [
+   0.01,
+   0.025,
+   0.05,
+   0.1
+  ],
+  "ray_samples": 12,
+  "dense_time_block": 1,
+  "dense_equivariant": true,
+  "dense_radial_cutoff": 44,
+  "ic_frames": 8,
+  "domain_x_m": 2000.0,
+  "domain_z_m": 2000.0,
+  "domain_t_s": 1.0,
+  "carrier_mode": "single_surface",
+  "phase_mode": "off",
+  "arrival_head": false,
+  "scattering_head": false,
+  "local_multi_dilation": false,
+  "u_path_enabled": true,
+  "u_path_channels": [
+   16,
+   32,
+   48
+  ],
+  "u_path_output_scale": 0.01,
+  "fixed_wave_physics": true,
+  "medium_u_enhance": true
+ },
+ "data": {
+  "ic_frames": 8,
+  "dense_time_steps": 16,
+  "active_horizon_s": 1.0,
+  "dense_checkpoint": false,
+  "dense_outer_checkpoint": true,
+  "expected_train_records": 1000,
+  "expected_validation_records": 0,
+  "train_families": [
+   "uniform",
+   "layered"
+  ]
+ },
+ "carrier": {
+  "enabled": false,
+  "J": 6,
+  "pad_x": 1024,
+  "nq": 48,
+  "channels_per_branch": 3
+ }
+}

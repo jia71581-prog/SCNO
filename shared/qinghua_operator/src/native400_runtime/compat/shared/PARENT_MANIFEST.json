@@ -1,0 +1,1041 @@
+{
+  "candidate_id": "causal_forcing201_v1_20261003",
+  "utc": "2026-10-03T06:05:55.317446+00:00",
+  "access": "metadata_velocity_source_only_no_wavefield_values",
+  "h5_path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/dataset_v1.h5",
+  "h5_sha256": "c4c007e86c85ad7e2a3b26556a395820b08af19922cf8756b9fe700208cad9b0",
+  "semantic_manifest_digest": "a2ae0d3b1ed2d58a42b6cbdafb7ae020b3a56addbfd3b6489d40f263f857bec8",
+  "normalizer": {
+    "path": "local_assets/project/src/native400_runtime/compat/shared/normalization_ul.json",
+    "sha256": "1df298243715f12b11fcc68132a9df84081e7c7aa6c17960417b64be93073c52"
+  },
+  "normalized_pressure_scale_float64": 1.252277344221455e-08,
+  "normalized_pressure_scale_float32": 1.2522773040757329e-08,
+  "parents": {
+    "layered": {
+      "path": "local_assets/project/checkpoints/bootstrap/original50000_layered.pt",
+      "code": "local_assets/project/src/native400_runtime/compat/base_layered",
+      "config": "local_assets/project/src/native400_runtime/compat/base_layered/configs/l4_200ep.yaml",
+      "sha256": "b650fd1918ff8faeb526d3988f2360eea2aa7a3e9f2d75e02546feb7d8996358",
+      "config_sha256": "7f12264af4a786d3991e12df5d1661f1803cba6657a3690bef9af7b330907b55",
+      "resolved_config": {
+        "lift_mode": "homogeneous",
+        "model_spec": "local_assets/project/src/native400_runtime/compat/base_layered/configs/model_spec_v185b.json",
+        "initial_checkpoint": "local_assets/project/checkpoints/bootstrap/v185_anchor_7500.pt",
+        "init_partial": false,
+        "init_optimizer_transplant": false,
+        "sampler_draw_offset": 0,
+        "train_time_block": 26,
+        "seed": 101,
+        "sampler": {
+          "kind": "st_ras",
+          "alpha": 1.0,
+          "epsilon": 0.1,
+          "tau": 0.6,
+          "sync_every": 50,
+          "importance_correct": true,
+          "record": true,
+          "time": true,
+          "space": true,
+          "space_grid": 26,
+          "epsilon_x": 0.3,
+          "weight_cap": 10.0,
+          "space_smooth": true,
+          "frame_energy_floor_rel": 0.001,
+          "intra_stratum": "residual",
+          "family_shares": null,
+          "causal_time": {
+            "enabled": true,
+            "draws_per_update": 4,
+            "schedule": [
+              {
+                "until_update": null,
+                "horizon_s": 1.0
+              }
+            ]
+          }
+        },
+        "physics": {
+          "enabled": false
+        },
+        "cycle": {
+          "width": 16,
+          "levels": 3,
+          "depth_schedule": [
+            {
+              "start": 1,
+              "end": null,
+              "depth": 2
+            }
+          ]
+        },
+        "data": {
+          "source_h5": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/dataset_v1.h5",
+          "normalization_json": "local_assets/project/src/native400_runtime/compat/shared/normalization_ul.json",
+          "exclusions_json": "local_assets/project/src/native400_runtime/compat/base_layered/configs/l2_exclusions.json",
+          "dev_panel_json": "local_assets/project/src/native400_runtime/compat/base_layered/configs/l2_dev3.json",
+          "frequency_bins": [
+            [
+              8.0,
+              25.01
+            ]
+          ],
+          "frames_per_update": 32,
+          "spatial_samples_per_frame": 4096,
+          "ic_frames": 8,
+          "expected_pool_records": 497,
+          "families": [
+            "layered"
+          ],
+          "energy_chunk_frames": 16,
+          "prefetch": {
+            "kind": "mp",
+            "num_workers": 4,
+            "depth": 3
+          }
+        },
+        "loss": {
+          "kind": "stratified_fullfuture_record_norm",
+          "epsilon": 0.0,
+          "strata": 32
+        },
+        "lr_schedule": {
+          "kind": "cosine",
+          "final_scale": 0.1,
+          "total_draws": 50000,
+          "warmup_draws": 250
+        },
+        "optimizer": {
+          "learning_rates": {
+            "parent": 2e-05,
+            "correction_scale": 1e-06,
+            "scno": 0.0005,
+            "upath": 0.0003,
+            "physicsfd": 0.0003
+          },
+          "weight_decay": 1e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "gradient_clip": 1.0
+        },
+        "runtime": {
+          "max_updates": 50000,
+          "max_seconds": 61200,
+          "checkpoint_every": 250,
+          "checkpoint_keep_latest": 4,
+          "checkpoint_keep_best": 2,
+          "checkpoint_seconds": 3600,
+          "eval_every": 0,
+          "eval_at_end": false,
+          "log_every": 10,
+          "cpu_threads": 6,
+          "min_free_disk_gib": 30,
+          "min_free_vram_gib": 22,
+          "allocator_limit_gib": 23,
+          "epoch_control": {
+            "enabled": true,
+            "updates_per_epoch": 250,
+            "target_epochs": 200
+          }
+        },
+        "evaluation": {
+          "deployed_contract": "v18a_base_only"
+        },
+        "checkpoint_keep_latest": 4,
+        "checkpoint_keep_best": 2,
+        "stability_controller": {
+          "enabled": false
+        }
+      },
+      "model_spec_sha256": "5d5166060664f4cfbe46cf8ba4c1aec0588913d453101828b2098622f476f79c"
+    },
+    "marmousi": {
+      "path": "local_assets/project/checkpoints/bootstrap/original50000_marmousi.pt",
+      "code": "local_assets/project/src/native400_runtime/compat/base_marmousi",
+      "config": "local_assets/project/src/native400_runtime/compat/base_marmousi/configs/m4_200ep.yaml",
+      "sha256": "8a764829264c547f5d6ebb4624e85c5899712320e4f4ef92e271004203c8aa64",
+      "config_sha256": "14cfd151e9e015351b26b9b7bfa1561d978a216a20e76a9816fd6692d5d5879f",
+      "resolved_config": {
+        "lift_mode": "homogeneous",
+        "model_spec": "local_assets/project/src/native400_runtime/compat/base_marmousi/configs/model_spec_v185b.json",
+        "initial_checkpoint": "local_assets/project/checkpoints/bootstrap/v185_anchor_7500.pt",
+        "init_partial": false,
+        "init_optimizer_transplant": false,
+        "sampler_draw_offset": 600000,
+        "train_time_block": 26,
+        "seed": 101,
+        "sampler": {
+          "kind": "st_ras",
+          "alpha": 1.0,
+          "epsilon": 0.3,
+          "tau": 0.9,
+          "sync_every": 50,
+          "importance_correct": true,
+          "record": false,
+          "time": true,
+          "space": true,
+          "space_grid": 26,
+          "epsilon_x": 0.3,
+          "weight_cap": 10.0,
+          "space_smooth": true,
+          "frame_energy_floor_rel": 0.001,
+          "intra_stratum": "residual",
+          "family_shares": null,
+          "causal_time": {
+            "enabled": true,
+            "draws_per_update": 4,
+            "schedule": [
+              {
+                "until_update": null,
+                "horizon_s": 1.0
+              }
+            ]
+          }
+        },
+        "physics": {
+          "enabled": false
+        },
+        "cycle": {
+          "width": 16,
+          "levels": 3,
+          "depth_schedule": [
+            {
+              "start": 1,
+              "end": null,
+              "depth": 2
+            }
+          ]
+        },
+        "data": {
+          "source_h5": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/dataset_v1.h5",
+          "normalization_json": "local_assets/project/src/native400_runtime/compat/shared/normalization_ul.json",
+          "exclusions_json": "local_assets/project/src/native400_runtime/compat/base_marmousi/configs/m1_exclusions.json",
+          "dev_panel_json": "local_assets/project/src/native400_runtime/compat/base_marmousi/configs/m1_dev3.json",
+          "frequency_bins": [
+            [
+              8.0,
+              25.01
+            ]
+          ],
+          "frames_per_update": 32,
+          "spatial_samples_per_frame": 4096,
+          "ic_frames": 8,
+          "expected_pool_records": 997,
+          "families": [
+            "marmousi"
+          ],
+          "energy_chunk_frames": 16,
+          "prefetch": {
+            "kind": "mp",
+            "num_workers": 4,
+            "depth": 3
+          }
+        },
+        "loss": {
+          "kind": "stratified_fullfuture_record_norm",
+          "epsilon": 0.0,
+          "strata": 32
+        },
+        "lr_schedule": {
+          "kind": "cosine",
+          "final_scale": 0.1,
+          "total_draws": 50000,
+          "warmup_draws": 250
+        },
+        "optimizer": {
+          "learning_rates": {
+            "parent": 2e-05,
+            "correction_scale": 1e-06,
+            "scno": 0.0005,
+            "upath": 0.0003,
+            "physicsfd": 0.0003
+          },
+          "weight_decay": 1e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "gradient_clip": 1.0
+        },
+        "runtime": {
+          "max_updates": 50000,
+          "max_seconds": 61200,
+          "checkpoint_every": 250,
+          "checkpoint_keep_latest": 4,
+          "checkpoint_keep_best": 2,
+          "checkpoint_seconds": 3600,
+          "eval_every": 0,
+          "eval_at_end": false,
+          "log_every": 10,
+          "cpu_threads": 6,
+          "min_free_disk_gib": 30,
+          "min_free_vram_gib": 22,
+          "allocator_limit_gib": 23,
+          "epoch_control": {
+            "enabled": true,
+            "updates_per_epoch": 250,
+            "target_epochs": 200
+          }
+        },
+        "evaluation": {
+          "deployed_contract": "v18a_base_only"
+        },
+        "checkpoint_keep_latest": 4,
+        "checkpoint_keep_best": 2,
+        "stability_controller": {
+          "enabled": false
+        }
+      },
+      "model_spec_sha256": "5d5166060664f4cfbe46cf8ba4c1aec0588913d453101828b2098622f476f79c"
+    }
+  },
+  "records": [
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 883,
+      "sample_number": 383,
+      "sample_id": "train_layered_n15_0383",
+      "group_id": "fs25:layered:new0103",
+      "sample_sha256": "42969b43acdf08e2b233b3985ff9d76e621d7df7df787da0d9d0033bd98220c8",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "3c1d7467cb1b824d67339280342a05f5562a9c771c5fbfc7ac1168bdee412d41",
+      "vmax_mps": 5032.962890625,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00220.h5",
+        "size": 349166968,
+        "mtime_ns": 1790669591996017963
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 710,
+      "sample_number": 210,
+      "sample_id": "train_layered_n15_0210",
+      "group_id": "fs25asc:train:layered:00210",
+      "sample_sha256": "ebeb836640f6225d15551559acd0286314daa502df0bf61f05d84beea35facd8",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0b72e501e0c8573719cdf982c47b63bece9b6e2adfaf86bdb82257b831999fc7",
+      "vmax_mps": 5388.69775390625,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00177.h5",
+        "size": 391202202,
+        "mtime_ns": 1790669384113324741
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 580,
+      "sample_number": 80,
+      "sample_id": "train_layered_n15_0080",
+      "group_id": "fs25asc:train:layered:00080",
+      "sample_sha256": "e60aebc21cd3fab08c04df01cf81761fd595e9f7fea16d27ef230d6777d3dd13",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "21b70fdf23a56923a7313dc561d722576a580947cd65ac1a5c95e22996850856",
+      "vmax_mps": 5855.94970703125,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00145.h5",
+        "size": 383454642,
+        "mtime_ns": 1790669240171042252
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 560,
+      "sample_number": 60,
+      "sample_id": "train_layered_n15_0060",
+      "group_id": "fs25asc:train:layered:00060",
+      "sample_sha256": "763914c1677b808eb6e9c215b3bf3df5cda8739bf4b9227e09562863520f7d38",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "b5932900373677e44c1d9fa86f125250a5b2dcec09392c28c72fd8d0c43170a2",
+      "vmax_mps": 3500.570068359375,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00140.h5",
+        "size": 340998109,
+        "mtime_ns": 1790669232695548411
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 559,
+      "sample_number": 59,
+      "sample_id": "train_layered_n15_0059",
+      "group_id": "fs25asc:train:layered:00059",
+      "sample_sha256": "0d502ea004732e8e754c97242dac563af19b185e28f78462c9ba5601352033d7",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "4d933e8fff89292f72ae5c7b1282c21a667a865ffd0cdf8e0e5c876993af9eb4",
+      "vmax_mps": 5682.8134765625,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00139.h5",
+        "size": 364928455,
+        "mtime_ns": 1790669137653998626
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 769,
+      "sample_number": 269,
+      "sample_id": "train_layered_n15_0269",
+      "group_id": "fs25asc:train:layered:00269",
+      "sample_sha256": "066691134c6a672199a840f33b60bad3e6c661730483d859bb228cf543de5570",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "9ebf0b3a30fcf6b318080a285a3c38f87d520dd45dd500e9f409050d5a0f396b",
+      "vmax_mps": 5689.5927734375,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00192.h5",
+        "size": 357984443,
+        "mtime_ns": 1790669514375271604
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 817,
+      "sample_number": 317,
+      "sample_id": "train_layered_n15_0317",
+      "group_id": "fs25:layered:new0037",
+      "sample_sha256": "0c9ab5df659de9f16e0d9f3cbfe3488d017774b306626973cfb7def482005621",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "9a567f6c7fe629d73b327b659240b967bb7cea6f46dd5ca87afeac3ccbe7ad1c",
+      "vmax_mps": 3201.19580078125,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00204.h5",
+        "size": 350469845,
+        "mtime_ns": 1790669521218246436
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "layered",
+      "source_index": 569,
+      "sample_number": 69,
+      "sample_id": "train_layered_n15_0069",
+      "group_id": "fs25asc:train:layered:00069",
+      "sample_sha256": "b0157f9c45f1138ca7b6333970cf302addc11561ace6391b2c4fd747fd336197",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "bcbd8875af8df6d3a2ae04192b0ba74ca809861c582a0cb8ad5f3df5c095f7fc",
+      "vmax_mps": 5851.611328125,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00142.h5",
+        "size": 389442574,
+        "mtime_ns": 1790669148169283526
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1068,
+      "sample_number": 68,
+      "sample_id": "train_marmousi_n15_0068",
+      "group_id": "pmsrc20:train_pmsrc20:0068",
+      "sample_sha256": "b975352fc2733883f0165d33a5269568e972e22ddfcd200ee50d64d10885ee6c",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        562.6309,
+        1183.7406,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "480e21ea629fc234a7cbb0a8a27e102feb60d18ecf0e7229f4cdb135e85b4b20",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00267.h5",
+        "size": 408285382,
+        "mtime_ns": 1790669691982608032
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1832,
+      "sample_number": 832,
+      "sample_id": "train_marmousi_n15_0832",
+      "group_id": "pmsrc20:train_pmsrc20:0832",
+      "sample_sha256": "3ed06e7e262e9a33c5f12af1aadf5779360c78948e2e97bec71cf8a1214c9148",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        669.5243,
+        1360.8568,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "03a561b220bd160876815add2eca3d6dc7da21a736efb1a3d1ddaffedeeac44b",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00458.h5",
+        "size": 377188545,
+        "mtime_ns": 1790670603890604334
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1958,
+      "sample_number": 958,
+      "sample_id": "train_marmousi_n15_0958",
+      "group_id": "pmsrc20:val_pmsrc20:0058",
+      "sample_sha256": "91ce380e8a8967e1d7b0794d224b4430991ccbae9edac133b3401802736cb0d6",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        533.4016,
+        203.5026,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "49340c8721dae4801dbd94d1fdd70913bc8aa23215ede9f5dc258ee5ccd6ecfa",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00489.h5",
+        "size": 381257431,
+        "mtime_ns": 1790670862752999297
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1078,
+      "sample_number": 78,
+      "sample_id": "train_marmousi_n15_0078",
+      "group_id": "pmsrc20:train_pmsrc20:0078",
+      "sample_sha256": "b1c4e4f702c3249561499d929f82ec863819c17b7afd5b2a70a67076115c0305",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        792.4045,
+        454.0732,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "5c1f2bea16f6e6063baddc415b88034882ef13f06b4cb0a6cb984f10163aa8cb",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00269.h5",
+        "size": 384713254,
+        "mtime_ns": 1790669764377547181
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1120,
+      "sample_number": 120,
+      "sample_id": "train_marmousi_n15_0120",
+      "group_id": "pmsrc20:train_pmsrc20:0120",
+      "sample_sha256": "8c6a31bdd10c16d6eae98156ef97e9e2f009a0cdbdab3c4321672301d8ad8193",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        1044.7839,
+        1020.3645,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "5778f390619cfc06ed1a5cc261d7c5946c3392507102aaec0527b4f2b864b43f",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00280.h5",
+        "size": 393987517,
+        "mtime_ns": 1790669874568625773
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1131,
+      "sample_number": 131,
+      "sample_id": "train_marmousi_n15_0131",
+      "group_id": "pmsrc20:train_pmsrc20:0131",
+      "sample_sha256": "ea14a2be5f282858c35f5215363ec5ba84c27d1b434624819c851a53694b85bd",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        1117.6716,
+        1742.8409,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "50c2f9e6a66056b8c870842c4110262314bb0af2bfa412e87733eee899c87d38",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00282.h5",
+        "size": 384522728,
+        "mtime_ns": 1790669786766841946
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1103,
+      "sample_number": 103,
+      "sample_id": "train_marmousi_n15_0103",
+      "group_id": "pmsrc20:train_pmsrc20:0103",
+      "sample_sha256": "c0253957cd01cdb7da727a0319eb179ba01fb76cdef36674871c36b093f236ad",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        1888.2201,
+        207.9826,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "d6b90312ee6b9ba4757dcfd79c0f2fb8671aca58276d54e60a6f133e5bb82418",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00275.h5",
+        "size": 363790944,
+        "mtime_ns": 1790669759910092206
+      }
+    },
+    {
+      "role": "calibration",
+      "family": "marmousi",
+      "source_index": 1741,
+      "sample_number": 741,
+      "sample_id": "train_marmousi_n15_0741",
+      "group_id": "pmsrc20:train_pmsrc20:0741",
+      "sample_sha256": "328e5153c9d80eaef7699216a31deefc1bfdd927a52f613309a4f1398b8f5589",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        1524.2393,
+        963.6923,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "102f3a7379f4a114faf42fa523519be10119ab5e964ddbaae9113d09edc80532",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00435.h5",
+        "size": 394245199,
+        "mtime_ns": 1790670507302932952
+      }
+    },
+    {
+      "role": "design_eval",
+      "family": "layered",
+      "source_index": 943,
+      "sample_number": 443,
+      "sample_id": "train_layered_n15_0443",
+      "group_id": "fs25:layered:new0163",
+      "sample_sha256": "c884e63d289566bf23a83a8331e4e710679e9b64de820a800b9cd8090067da19",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "2a848e379df702d12e90daf41cc4412d5a1ed647cf9daf7229428947db470bda",
+      "vmax_mps": 4908.8740234375,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00235.h5",
+        "size": 388190796,
+        "mtime_ns": 1790669554137406255
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0443/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0443/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "a3c7589ea769e6e5ccf73151e7415b9142bf8b6ae44438c0fbfbbf67d9297487"
+    },
+    {
+      "role": "design_eval",
+      "family": "layered",
+      "source_index": 787,
+      "sample_number": 287,
+      "sample_id": "train_layered_n15_0287",
+      "group_id": "fs25:layered:new0007",
+      "sample_sha256": "d5272ef57102072d1dae083e05f9727bf558626042c32a02c924643147beccda",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "c65e242f16e16dfb8f1d7a93fd79a633c93b9ef5691e0501fb98922981f85382",
+      "vmax_mps": 3476.08642578125,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00196.h5",
+        "size": 371588790,
+        "mtime_ns": 1790669516618934736
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0287/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0287/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "8b3f7db23a722616618b8d7bb6a171dcf4074843b9a1eca0cafa63e43ff73ff0"
+    },
+    {
+      "role": "design_eval",
+      "family": "layered",
+      "source_index": 991,
+      "sample_number": 491,
+      "sample_id": "train_layered_n15_0491",
+      "group_id": "fs25:layered:new0211",
+      "sample_sha256": "0f13cb0db152f30f65e19443008761542d0b9ac5d9bec52616678cee5097d2d1",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "518abd54b5d2d5e76490be24b5d25a4cca58a2a66ac0d0751aeda2c8c1c6d838",
+      "vmax_mps": 5497.40966796875,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00247.h5",
+        "size": 369661462,
+        "mtime_ns": 1790669620336101352
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0491/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0491/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "e87566f6f8ea52f5ac27a10bb99982893cd620acfa8a85cab4f14cb11fdfc287"
+    },
+    {
+      "role": "design_eval",
+      "family": "layered",
+      "source_index": 796,
+      "sample_number": 296,
+      "sample_id": "train_layered_n15_0296",
+      "group_id": "fs25:layered:new0016",
+      "sample_sha256": "5655e654bbb3bca81ff4dd36b0e7d3ca25fd6d4e3d83d2884c2461ee4662b0af",
+      "split": "train",
+      "medium_type": "layered",
+      "qc_status": "passed",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "1e9403eaebdf9c6069ed55a0a9d80cc2b776f71ef0ac8118baf275be174a7364",
+      "vmax_mps": 3001.232421875,
+      "source_map_sha256": "55d8e033154b7ae03f25c479cd8a4cebe669208f156603f96e2765c9fdeb3e25",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00199.h5",
+        "size": 346858812,
+        "mtime_ns": 1790669408863658753
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0296/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_layered_n15_0296/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "36ff773f78dd62e37e0b553c62059cfb2b86c04bbe16b5550fa5d1a5b82d219e"
+    },
+    {
+      "role": "design_eval",
+      "family": "marmousi",
+      "source_index": 1454,
+      "sample_number": 454,
+      "sample_id": "train_marmousi_n15_0454",
+      "group_id": "pmsrc20:train_pmsrc20:0454",
+      "sample_sha256": "30897b7d665cd370ec4c9739eccf1f31f3513fdf3561cf76fcf87b651cc7b2e9",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        611.0733,
+        1644.3452,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "e89d2795003f61452b925e9f4ca87919ad68db7ce8a18863eafac269328ee591",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00363.h5",
+        "size": 387000639,
+        "mtime_ns": 1790670128281903383
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0454/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0454/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "5a9e43a8e81f80dd6f364ab0cb2924ed7b62f6c60a982dd7e7acfa11aa61ab37"
+    },
+    {
+      "role": "design_eval",
+      "family": "marmousi",
+      "source_index": 1246,
+      "sample_number": 246,
+      "sample_id": "train_marmousi_n15_0246",
+      "group_id": "pmsrc20:train_pmsrc20:0246",
+      "sample_sha256": "69aa75a4b7a1b85bd8bb598a8fc32c24f58d4460f6b85604d018616bb19fd116",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        128.1929,
+        204.7541,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "6b84b6a7aa838e348a4d151ecdb056e90058cbb7325d6fb3150b709533ad12cd",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00311.h5",
+        "size": 362348404,
+        "mtime_ns": 1790669907004995888
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0246/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0246/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "a94ad31c3ec2b98fe0cfcd0c13d4d9571ecb9eb7e4a310cebc1753d5058f3049"
+    },
+    {
+      "role": "design_eval",
+      "family": "marmousi",
+      "source_index": 1622,
+      "sample_number": 622,
+      "sample_id": "train_marmousi_n15_0622",
+      "group_id": "pmsrc20:train_pmsrc20:0622",
+      "sample_sha256": "298835fb085ed4715a09bf62eba50379701d34b2efc33a4c4f27309f20d00d18",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        1150.5871,
+        1128.0153,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "6967e15d2ed22495b843f59478c9f990490147174296ed9b261dbec7fb214834",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00405.h5",
+        "size": 381182956,
+        "mtime_ns": 1790670471310084076
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0622/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0622/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "439e4e7efb4b13caa30451d5434298e95937c7a9eb3f35596f2b90b90f83eb3d"
+    },
+    {
+      "role": "design_eval",
+      "family": "marmousi",
+      "source_index": 1210,
+      "sample_number": 210,
+      "sample_id": "train_marmousi_n15_0210",
+      "group_id": "pmsrc20:train_pmsrc20:0210",
+      "sample_sha256": "d947020f660dc66788e79e60d8fe47dc0c47f38c30e5b6caa97f4d62d4d6eb00",
+      "split": "train",
+      "medium_type": "marmousi",
+      "qc_status": "passed",
+      "source_parameters": [
+        1217.6596,
+        912.2571,
+        15.0,
+        0.1,
+        1.0
+      ],
+      "velocity_mps_sha256": "0113c20b8e5db10da9e778fbf545ea12c01e7becbb7fc494e46ad383c91eba1f",
+      "vmax_mps": 4450.0,
+      "source_map_sha256": "43827585bdd47b726ae533a7bba503f2cec4160fdf222434378d8de1b399873d",
+      "source_shard": {
+        "path": "local_assets/datasets/acoustic_nyquist15_1s_801f_20260929/shards/train/train-00302.h5",
+        "size": 395091136,
+        "mtime_ns": 1790669866085587261
+      },
+      "old_compatible_parent_cache": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0210/parent_normalized.npy",
+      "old_parent_cache_meta": "local_assets/fno-reference/instance_adjoint_research_20261003/artifacts/train_marmousi_n15_0210/PARENT_CACHE.json",
+      "old_parent_cache_sha256": "03c2cd4c5f30f9a58cdcf981b19b5dfab3cae94991d21f3d40e7848d51396600"
+    }
+  ],
+  "calibration_order": {
+    "layered": [
+      383,
+      210,
+      80,
+      60,
+      59,
+      269,
+      317,
+      69
+    ],
+    "marmousi": [
+      68,
+      832,
+      958,
+      78,
+      120,
+      131,
+      103,
+      741
+    ]
+  },
+  "design_order": {
+    "layered": [
+      443,
+      287,
+      491,
+      296
+    ],
+    "marmousi": [
+      454,
+      246,
+      622,
+      210
+    ]
+  },
+  "old24_excluded_groups": [
+    "fs25:layered:new0007",
+    "fs25:layered:new0016",
+    "fs25:layered:new0122",
+    "fs25:layered:new0163",
+    "fs25:layered:new0179",
+    "fs25:layered:new0192",
+    "fs25:layered:new0207",
+    "fs25:layered:new0211",
+    "fs25asc:train:layered:00021",
+    "fs25asc:train:layered:00066",
+    "fs25asc:train:layered:00120",
+    "fs25asc:train:layered:00177",
+    "pmsrc20:train_pmsrc20:0210",
+    "pmsrc20:train_pmsrc20:0234",
+    "pmsrc20:train_pmsrc20:0246",
+    "pmsrc20:train_pmsrc20:0335",
+    "pmsrc20:train_pmsrc20:0359",
+    "pmsrc20:train_pmsrc20:0454",
+    "pmsrc20:train_pmsrc20:0480",
+    "pmsrc20:train_pmsrc20:0489",
+    "pmsrc20:train_pmsrc20:0622",
+    "pmsrc20:train_pmsrc20:0868",
+    "pmsrc20:val_pmsrc20:0042",
+    "pmsrc20:val_pmsrc20:0057"
+  ],
+  "confirmation_or_test_future": "FORBIDDEN",
+  "source_map_contract": "H5 saved201 node-centred bilinear unitmass; not delta_h, no pressure scaling",
+  "pressure_contract": "parent/prefix/truth/forcing in normalizedpressure; q=omega15^2*force normalizedpressure/s^2; encode rawtruth once with global scale*knownA",
+  "axes_hashes": {
+    "time_s": "22cb27441fbf3b57e9ec33c148ba5a74fc8ebf642aac5b11e1074a8f06fcb3e3",
+    "x_m": "283463dcab2b5704f8524aa0572b207a964525dab0ce08bbfbafe039b28cff5a",
+    "z_m": "283463dcab2b5704f8524aa0572b207a964525dab0ce08bbfbafe039b28cff5a"
+  },
+  "roster_sha256": "ea4e6d7ea3f735ea729d52a0f7e4da3a5ca6acc23e63e56e4ad9f1a6a060dd66"
+}
